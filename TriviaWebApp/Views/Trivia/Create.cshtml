@@ -1,0 +1,40 @@
+@model TriviaWebApp.Models.Trivia
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Trivia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TriviaQuestion" class="control-label"></label>
+                <input asp-for="TriviaQuestion" class="form-control" />
+                <span asp-validation-for="TriviaQuestion" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="TriviaAnswer" class="control-label"></label>
+                <input asp-for="TriviaAnswer" class="form-control" />
+                <span asp-validation-for="TriviaAnswer" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
